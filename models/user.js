@@ -9,13 +9,13 @@ const UserSchema = new Schema({
             validator: (name) => name.length > 2,
             message: 'Username must be longer than 2 charackters'
         },
-        required: [true, 'Username is required.']
-       // unique: true
+        required: [true, 'Username is required.'],
+        unique: true
     },
     password: {
     
         type: String,
-        //"required: true
+        required: true
             
     },
     name: String,
