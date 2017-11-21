@@ -28,6 +28,16 @@ module.exports = {
         .catch(next);
         
     },
+    edit(req, res, next) {
+        const inspoId = req.params.id;
+        const inspoProps = req.body;
+        
+        Inspo.findByIdAndUpdate({ _id: inspoId }, inspoProps)
+        .then(() => Inspo.findById({ _id: inspoId }))
+        .then(inspo => res.send(inspo)) 
+        .catch(next);
+        
+    },
     insposUserId(req, res, next) {
         const _userId = req.params.id;
 

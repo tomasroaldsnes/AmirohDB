@@ -50,6 +50,16 @@ module.exports = {
         .catch(next);
         
     },
+    editUsername(req, res, next) {
+        const userId = req.params.username;
+        const userProps = req.body;
+        
+        User.findOneAndUpdate({ username: userId }, userProps)
+        .then(() => User.findOne({ username: userId }))
+        .then(user => res.send(user)) 
+        .catch(next);
+        
+    },
 
      delete(req, res, next) {
         const userId = req.params.id;

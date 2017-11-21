@@ -28,7 +28,8 @@ const UserSchema = new Schema({
     inspos: [{
         type: Schema.Types.ObjectId,
         ref: 'inspo'
-    }] 
+    }],
+    salt: String
     
 
 

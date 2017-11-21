@@ -24,7 +24,7 @@ describe('User controllers', () => {
     });
 
     it('GET to amirohAPI/users/id to return user', done => {
-        const user = new User({ username: 'toma', email: 't@t.com' });
+        const user = new User({ username: 'toma', email: 't@t.com', password: "34564532567" });
 
         user.save().then(() => {
             request(app)
@@ -48,7 +48,7 @@ describe('User controllers', () => {
         User.count().then(count => {
             request(app)
             .post('/AmirohAPI/users')
-            .send( { username: 'tomasebest', email: 'test@test.com' } )
+            .send( { username: 'tomasebasest', email: 'test@test.com', password: "34564532567" } )
             .end(() => {
                 User.count().then(newCount => {
                     assert(count + 1 === newCount);
@@ -62,7 +62,7 @@ describe('User controllers', () => {
     });
 
      it('PUT to amirohAPI/users to update update', done => {
-        const user = new User({ username: 'tomasebest', email: 't@t.com' });
+        const user = new User({ username: 'tomasebest', email: 't@t.com', password: "34564532567" });
 
         user.save().then(() => {
             request(app)
@@ -81,7 +81,7 @@ describe('User controllers', () => {
     }); 
 
      it('DELETE to amirohapi/users deletes a user', (done) => {
-        const user = new User({ username: 'tomasebest', email: 't@t.com' });
+        const user = new User({ username: 'tomasebest', email: 't@t.com', password: "34564532567" });
         user.save().then(() => {
             request(app)
             .delete(`/AmirohAPI/users/${user._id}`)

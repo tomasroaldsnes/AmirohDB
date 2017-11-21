@@ -4,14 +4,12 @@ const Schema = mongoose.Schema;
 
 
 const CommentSchema = new Schema({
-    content: String,
-    user: {
-        type: Schema.Types.ObjectId, 
-        ref: 'user'
-    }
+    username: String,
+    text: String,
+    profilePicture: String
     
 });
 
 const Comment = mongoose.model('comment', CommentSchema);
 
-module.exports = Comment;
+//module.exports = Comment;

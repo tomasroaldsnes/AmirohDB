@@ -50,7 +50,7 @@ describe('Inspo controllers', () => {
 
 
     it('DELETE to amirohapi/inspo deletes an inspo post', (done) => {
-        const inspo = new Inspo({ title: 'Wow such great', URL: 'https://tinyurl.com/y8lb5tmf' });
+        const inspo = new Inspo({ title: 'Wow such great', URL: 'https://tinyurl.com/y8lb5tmf', username: "tooot" });
         user.save().then(() => {
             request(app)
             .delete(`/AmirohAPI/inspos/${inspo._id}`)

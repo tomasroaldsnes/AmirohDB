@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const CommentSchema = require('./comments');
 
 const Schema = mongoose.Schema;
 
@@ -19,11 +20,9 @@ const InspoSchema = new Schema({
         ref: 'user'
     },
     productsUsed: [String],
-    claps: Number,
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'comment'
-    }]
+    points: Number,
+    tags: [String],
+    comments: [CommentSchema]
 
 });
 
