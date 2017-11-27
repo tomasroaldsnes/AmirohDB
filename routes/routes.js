@@ -17,6 +17,7 @@ app.delete('/AmirohAPI/users/:id', UserController.delete); //delete existing use
 
 //routes for manipulating inspos
 app.post('/AmirohAPI/inspos', InspoController.create); //create an inspo post
+app.post('/AmirohAPI/inspos/:id', InspoController.addComment); //adds a comment to inspo
 app.delete('/AmirohAPI/inspos/:id', InspoController.delete); //delete an inspo
 app.get('/AmirohAPI/inspos', InspoController.inspos); //get all inspos
 app.put('/AmirohAPI/inspos/:id', InspoController.edit); //edit existing inspo

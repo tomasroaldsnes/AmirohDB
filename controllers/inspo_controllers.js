@@ -13,6 +13,20 @@ module.exports = {
         .catch(next);
         
     },
+    addComment(req, res, next) {
+        const inspoId = req.params.id;
+        const commentProps = req.body;
+        
+        Inspo.findById({ _id: inspoId })
+        .then((inspo) => { 
+            inspo.comments.push(commentProps);
+            return inspo.save();
+        })
+        .then(() => Inspo.findById({ _id: inspoId }))
+        .then(inspo => res.send(inspo)) 
+        .catch(next);
+        
+    },
      
     inspos(req, res, next) {
         Inspo.find({})
