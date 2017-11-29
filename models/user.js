@@ -29,6 +29,10 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'inspo'
     }],
+    collections: [{
+        type: Schema.Types.ObjectId,
+        ref: 'inspo'
+    }],
     salt: String
     
 

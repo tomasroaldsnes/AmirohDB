@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const CommentSchema = require('./comments');
+const NotificationSchema = require('./notification');
 
 const Schema = mongoose.Schema;
 
@@ -19,10 +20,12 @@ const InspoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
+    hasBeenLikedBy: [String],
     productsUsed: [String],
     points: Number,
     tags: [String],
-    comments: [CommentSchema]
+    comments: [CommentSchema],
+    notification: [NotificationSchema]
 
 });
 

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Inspo = require('../models/inspo');
 
 function userPopulate(userId, done){
     User.findById(userId).populate('inspos')
@@ -35,6 +36,38 @@ module.exports = {
         User.create(userProps)
         .then(user => res.send(user))
         .catch(next);  
+    },
+    addToCollection(req, res, next) {
+        const userId = req.params.id;
+        const inspoProps = req.body;
+        
+        User.findById({ _id: userId })
+        .then((user) => { 
+            user.collections.push(inspoProps);
+            return user.save();
+        })
+        .then(() => User.findById({ _id: userId }))
+        .then(user => {
+            user.populate('collections');
+            res.send(user);
+        }) 
+        .catch(next);
+        
+    },
+    getCollection(req, res, next) {
+        const userId = req.params.id;
+
+        User.findById({ _id: userId })
+        .then((user) => { 
+            Inspo.find({_id: user.collections})
+            .then((inspo) => {
+                res.send(inspo);
+            })
+            
+        })
+        .catch(next);
+
+
     },
 
 
