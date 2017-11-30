@@ -69,14 +69,31 @@ module.exports = {
 
 
     },
+    addFavedUser(req, res, next) {
+        const userId = req.params.id;
+        const favedProps = req.body;
+        
+        User.findById({ _id: userId })
+        .then((user) => { 
+            user.favedUsers.push(favedProps);
+            return user.save();
+        })
+        .then(() => User.findById({ _id: userId }))
+        .then(user => {
+            user.populate('favedUsers');
+            res.send(user);
+        }) 
+        .catch(next);
+        
+    },
     getFavedUsers(req, res, next) {
         const userId = req.params.id;
 
         User.findById({ _id: userId })
         .then((user) => { 
-            Inspo.find({_id: user.favedUsers})
-            .then((inspo) => {
-                res.send(inspo);
+            User.find({_id: user.favedUsers})
+            .then((user) => {
+                res.send(user);
             })
             
         })
