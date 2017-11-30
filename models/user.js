@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const NotificationSchema = require('./notification');
 const Schema = mongoose.Schema;
 
 
@@ -32,6 +33,11 @@ const UserSchema = new Schema({
     collections: [{
         type: Schema.Types.ObjectId,
         ref: 'inspo'
+    }],
+    notifications: [NotificationSchema],
+    favedUsers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
     }],
     salt: String
     

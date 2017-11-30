@@ -69,7 +69,20 @@ module.exports = {
 
 
     },
+    getFavedUsers(req, res, next) {
+        const userId = req.params.id;
 
+        User.findById({ _id: userId })
+        .then((user) => { 
+            Inspo.find({_id: user.favedUsers})
+            .then((inspo) => {
+                res.send(inspo);
+            })
+            
+        })
+        .catch(next);
+
+    },
 
    
 

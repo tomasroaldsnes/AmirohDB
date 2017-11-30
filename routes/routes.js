@@ -12,8 +12,10 @@ app.get('/AmirohAPI/users/:id', UserController.userId); //get one user from id
 app.get('/AmirohAPI/users/username/:username', UserController.userUsername); //get one user from username
 app.post('/AmirohAPI/users', UserController.create); //create new user
 
-app.post('/AmirohAPI/users/:id', UserController.addToCollection) //add an inspo to users collection
+app.post('/AmirohAPI/users/collection/:id', UserController.addToCollection) //add an inspo to users collection
 app.get('/AmirohAPI/users/collection/:id', UserController.getCollection)//get collection from user with id
+
+app.get('/AmirohAPI/users/faved/:id', UserController.getFavedUsers)//get faved users with userid
 
 app.put('/AmirohAPI/users/:id', UserController.edit); //edit existing user
 app.put('/AmirohAPI/users/username/:username', UserController.editUsername); //edit existing user with username
