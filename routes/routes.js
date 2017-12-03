@@ -18,6 +18,10 @@ app.get('/AmirohAPI/users/collection/:id', UserController.getCollection)//get co
 app.post('/AmirohAPI/users/faved/:id', UserController.addFavedUser) //add an user to user.favedUsers
 app.get('/AmirohAPI/users/faved/:id', UserController.getFavedUsers)//get faved users with userid
 
+app.post('/AmirohAPI/users/notification/:id', UserController.addNotification) //add an notification to user.notification
+app.get('/AmirohAPI/users/notification/:id', UserController.getNotification)//get notifications from user with userID
+
+
 app.put('/AmirohAPI/users/:id', UserController.edit); //edit existing user
 app.put('/AmirohAPI/users/username/:username', UserController.editUsername); //edit existing user with username
 app.delete('/AmirohAPI/users/:id', UserController.delete); //delete existing user from id

@@ -100,6 +100,34 @@ module.exports = {
         .catch(next);
 
     },
+    getNotification(req, res, next) {
+        const userId = req.params.id;
+
+        User.findById({ _id: userId })
+        .then((user) => { 
+            res.send(user.notifications);
+            
+        })
+        .catch(next);
+
+    },
+    addNotification(req, res, next) {
+        const userId = req.params.id;
+        const notificationProps = req.body;
+        
+        User.findById({ _id: userId })
+        .then((user) => { 
+            user.notifications.push(notificationProps);
+            return user.save();
+        })
+        .then(() => User.findById({ _id: userId }))
+        .then(user => {
+            user.populate('notifications');
+            res.send(user);
+        }) 
+        .catch(next);
+        
+    },
 
    
 

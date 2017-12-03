@@ -7,9 +7,8 @@ const NotificationSchema = new Schema({
     username: String,
     text: String,
     URL: String,
-    point: Boolean,
     fave: Boolean,
-    comment: Boolean
+    
     
 });
 
