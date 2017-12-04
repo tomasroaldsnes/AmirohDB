@@ -25,7 +25,11 @@ const InspoSchema = new Schema({
     points: Number,
     tags: [String],
     comments: [CommentSchema],
-    notifications: [NotificationSchema]
+    notifications: [NotificationSchema],
+    uploadId: {
+        type: String,
+        required: true
+    }
 
 });
 

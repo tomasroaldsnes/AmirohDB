@@ -20,6 +20,7 @@ app.get('/AmirohAPI/users/faved/:id', UserController.getFavedUsers)//get faved u
 
 app.post('/AmirohAPI/users/notification/:id', UserController.addNotification) //add an notification to user.notification
 app.get('/AmirohAPI/users/notification/:id', UserController.getNotification)//get notifications from user with userID
+app.delete('/AmirohAPI/users/notification/:id', UserController.deleteAllNotifications)//delete notifications from user with userID
 
 
 app.put('/AmirohAPI/users/:id', UserController.edit); //edit existing user
@@ -34,5 +35,6 @@ app.get('/AmirohAPI/inspos', InspoController.inspos); //get all inspos
 app.put('/AmirohAPI/inspos/:id', InspoController.edit); //edit existing inspo
 app.get('/AmirohAPI/inspos/:id', InspoController.insposUserId); //get all inspos from user with userID
 app.get('/AmirohAPI/inspos/user/:username', InspoController.insposUsername); //get all inspos from user with username
+app.get('/AmirohAPI/inspos/uploadId/:id', InspoController.inspoFromUploadId); //get one inspo with its uploadId
 
 };

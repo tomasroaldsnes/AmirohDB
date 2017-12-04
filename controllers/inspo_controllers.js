@@ -66,6 +66,14 @@ module.exports = {
         Inspo.find({ username: _username})
         .then(inspos => res.send(inspos))
         .catch(next); 
+    },
+
+    inspoFromUploadId(req, res, next) {
+        const uId = req.params.id;
+
+        Inspo.find({ uploadId: uId})
+        .then(inspo => res.send(inspo))
+        .catch(next); 
     }
 
 };

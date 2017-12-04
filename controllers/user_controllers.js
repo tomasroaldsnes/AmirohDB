@@ -128,6 +128,21 @@ module.exports = {
         .catch(next);
         
     },
+    deleteAllNotifications(req, res, next) {
+        const userId = req.params.id;
+        
+        User.findById({ _id: userId })
+        .then((user) => { 
+            user.notifications = [];
+            return user.save();
+        })
+        .then(() => User.findById({ _id: userId }))
+        .then(user => {
+             res.send(user);
+        }) 
+        .catch(next);
+        
+    },
 
    
 
