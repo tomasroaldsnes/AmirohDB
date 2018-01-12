@@ -39,7 +39,8 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     }],
-    salt: String
+    salt: String,
+    userCreated: Date
     
 
 

@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 
 
 const InspoSchema = new Schema({
-    title: String,
     description: String,
     URL: {
         type: String,
@@ -25,11 +24,11 @@ const InspoSchema = new Schema({
     points: Number,
     tags: [String],
     comments: [CommentSchema],
-    notifications: [NotificationSchema],
     uploadId: {
         type: String,
         required: true
-    }
+    },
+    inspoCreated: Date
 
 });
 
