@@ -7,9 +7,7 @@ function userPopulate(userId, done){
 }
 
 module.exports = {
-    greeting(req, res) {
-        res.send({ hi: 'there' });
-    },
+    
     users(req, res, next) {
         User.find({})
         .then(users => res.send(users))

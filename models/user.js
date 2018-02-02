@@ -40,7 +40,12 @@ const UserSchema = new Schema({
         ref: 'user'
     }],
     salt: String,
-    userCreated: Date
+    blockedUsers : [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    }],
+    userCreated: Date,
+
     
 
 

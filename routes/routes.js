@@ -1,10 +1,12 @@
 const UserController = require('../controllers/user_controllers');
 const InspoController = require('../controllers/inspo_controllers');
+const ReportController = require('../controllers/report_controllers');
 
 module.exports = (app) => {
     //watch for incoming request of type GET
 //on the route of //http:localhost:3050/api
-app.get('/AmirohAPI', UserController.greeting);
+app.get('/AmirohAPI/reports', ReportController.getReports);
+app.post('/AmirohAPI/reports', ReportController.createReport);
 
 //routes for manipulating user information
 app.get('/AmirohAPI/users', UserController.users); //get all users
