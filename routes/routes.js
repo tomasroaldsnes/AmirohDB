@@ -20,7 +20,8 @@ app.get('/AmirohAPI/users/collection/:id', UserController.getCollection)//get co
 app.post('/AmirohAPI/users/faved/:id', UserController.addFavedUser) //add an user to user.favedUsers
 app.get('/AmirohAPI/users/faved/:id', UserController.getFavedUsers)//get faved users with userid
 
-app.get('/AmirohAPI/users/blocked/:id', UserController.getBlockedUsers)//get faved users with userid
+app.get('/AmirohAPI/users/blockedUsers/:id', UserController.getBlockedUsers)//get blocked users with userid
+app.get('/AmirohAPI/users/blockedUsersID/:id', UserController.getBlockedUsersID)//get blocked users with userid
 
 app.post('/AmirohAPI/users/notification/:id', UserController.addNotification) //add an notification to user.notification
 app.get('/AmirohAPI/users/notification/:id', UserController.getNotification)//get notifications from user with userID

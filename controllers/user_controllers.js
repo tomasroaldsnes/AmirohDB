@@ -112,6 +112,16 @@ module.exports = {
         .catch(next);
 
     },
+    getBlockedUsersID(req, res, next) {
+        const userId = req.params.id;
+
+        User.findById({ _id: userId })
+        .then((user) => { 
+            res.send(user.blockedUsers);
+        })
+        .catch(next);
+
+    },
     getNotification(req, res, next) {
         const userId = req.params.id;
 
