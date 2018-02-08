@@ -98,6 +98,20 @@ module.exports = {
         .catch(next);
 
     },
+    getBlockedUsers(req, res, next) {
+        const userId = req.params.id;
+
+        User.findById({ _id: userId })
+        .then((user) => { 
+            User.find({_id: user.blockedUsers})
+            .then((user) => {
+                res.send(user);
+            })
+            
+        })
+        .catch(next);
+
+    },
     getNotification(req, res, next) {
         const userId = req.params.id;
 
