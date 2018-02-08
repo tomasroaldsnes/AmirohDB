@@ -14,20 +14,25 @@ app.get('/AmirohAPI/users/:id', UserController.userId); //get one user from id
 app.get('/AmirohAPI/users/username/:username', UserController.userUsername); //get one user from username
 app.post('/AmirohAPI/users', UserController.create); //create new user
 
+//add and get user's collection
 app.post('/AmirohAPI/users/collection/:id', UserController.addToCollection) //add an inspo to users collection
 app.get('/AmirohAPI/users/collection/:id', UserController.getCollection)//get collection from user with id
 
+//add and get faved users
 app.post('/AmirohAPI/users/faved/:id', UserController.addFavedUser) //add an user to user.favedUsers
 app.get('/AmirohAPI/users/faved/:id', UserController.getFavedUsers)//get faved users with userid
 
+//block user and get all blocked users
+app.post('/AmirohAPI/users/blockUser/:id', UserController.addBlockedUser) //add an user to user.favedUsers
 app.get('/AmirohAPI/users/blockedUsers/:id', UserController.getBlockedUsers)//get blocked users with userid
 app.get('/AmirohAPI/users/blockedUsersID/:id', UserController.getBlockedUsersID)//get blocked users with userid
 
+//add,get and delete a notification
 app.post('/AmirohAPI/users/notification/:id', UserController.addNotification) //add an notification to user.notification
 app.get('/AmirohAPI/users/notification/:id', UserController.getNotification)//get notifications from user with userID
 app.delete('/AmirohAPI/users/notification/:id', UserController.deleteAllNotifications)//delete notifications from user with userID
 
-
+//
 app.put('/AmirohAPI/users/:id', UserController.edit); //edit existing user
 app.put('/AmirohAPI/users/username/:username', UserController.editUsername); //edit existing user with username
 app.delete('/AmirohAPI/users/:id', UserController.delete); //delete existing user from id

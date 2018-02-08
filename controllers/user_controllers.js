@@ -122,6 +122,23 @@ module.exports = {
         .catch(next);
 
     },
+    addBlockedUser(req, res, next) {
+        const userId = req.params.id;
+        const blockedProps = req.body;
+        
+        User.findById({ _id: userId })
+        .then((user) => { 
+            user.blockedUsers.push(blockedProps);
+            return user.save();
+        })
+        .then(() => User.findById({ _id: userId }))
+        .then(user => {
+            user.populate('blockedUsers');
+            res.send(user);
+        }) 
+        .catch(next);
+        
+    },
     getNotification(req, res, next) {
         const userId = req.params.id;
 
