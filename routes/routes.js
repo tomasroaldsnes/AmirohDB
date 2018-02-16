@@ -1,10 +1,17 @@
 const UserController = require('../controllers/user_controllers');
 const InspoController = require('../controllers/inspo_controllers');
 const ReportController = require('../controllers/report_controllers');
+const MirrorOrderController = require('../controllers/mirrorOrder_controllers');
 
 module.exports = (app) => {
-    //watch for incoming request of type GET
-//on the route of //http:localhost:3050/api
+
+//routes for cryptomirror orders    
+ app.get('/AmirohAPI/cryptomirror/orders', MirrorOrderController.getOrders);
+ app.post('/AmirohAPI/cryptomirror/orders', MirrorOrderController.createOrder);  
+ app.get('/AmirohAPI/cryptomirror/orders/:address', MirrorOrderController.getOrderFromWalletAddress);  
+ app.get('/AmirohAPI/cryptomirror/orders/:email', MirrorOrderController.getOrderFromEmail); 
+
+//routes for Reports
 app.get('/AmirohAPI/reports', ReportController.getReports);
 app.post('/AmirohAPI/reports', ReportController.createReport);
 
@@ -32,7 +39,7 @@ app.post('/AmirohAPI/users/notification/:id', UserController.addNotification) //
 app.get('/AmirohAPI/users/notification/:id', UserController.getNotification)//get notifications from user with userID
 app.delete('/AmirohAPI/users/notification/:id', UserController.deleteAllNotifications)//delete notifications from user with userID
 
-//
+//editing and deleting an user
 app.put('/AmirohAPI/users/:id', UserController.edit); //edit existing user
 app.put('/AmirohAPI/users/username/:username', UserController.editUsername); //edit existing user with username
 app.delete('/AmirohAPI/users/:id', UserController.delete); //delete existing user from id
