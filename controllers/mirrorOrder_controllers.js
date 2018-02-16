@@ -16,14 +16,14 @@ module.exports = {
         .catch(next);  
     },
     getOrderFromWalletAddress(req, res, next) {
-        const wAddress = req.address;
+        const wAddress = req.params.address;
 
         MirrorOrder.find({ walletAddress: wAddress })
         .then(order => res.send(order))
         .catch(next); 
     },
     getOrderFromEmail(req, res, next) {
-        const eAddress = req.email;
+        const eAddress = req.params.email;
 
         MirrorOrder.find({ emailAddress: eAddress })
         .then(order => res.send(order))
