@@ -8,8 +8,8 @@ module.exports = (app) => {
 //routes for cryptomirror orders    
  app.get('/AmirohAPI/cryptomirror/orders', MirrorOrderController.getOrders);
  app.post('/AmirohAPI/cryptomirror/orders', MirrorOrderController.createOrder);  
- app.get('/AmirohAPI/cryptomirror/orders/:address', MirrorOrderController.getOrderFromWalletAddress);  
- app.get('/AmirohAPI/cryptomirror/orders/:email', MirrorOrderController.getOrderFromEmail); 
+ app.get('/AmirohAPI/cryptomirror/orders/walletAddress/:address', MirrorOrderController.getOrderFromWalletAddress);  
+ app.get('/AmirohAPI/cryptomirror/orders/email/:email', MirrorOrderController.getOrderFromEmail); 
 
 //routes for Reports
 app.get('/AmirohAPI/reports', ReportController.getReports);
