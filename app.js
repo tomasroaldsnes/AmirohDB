@@ -10,8 +10,7 @@ const app = express();
 
 
 
-var uri = "mongodb://amiroh:zibbizaze@amirohdb-shard-00-00-01nte.mongodb.net:27017,amirohdb-shard-00-01-01nte.mongodb.net:27017,amirohdb-shard-00-02-01nte.mongodb.net:27017/test?ssl=true&replicaSet=amirohdb-shard-0&authSource=admin";
-
+var uri =
 
 mongoose.Promise = global.Promise;
 if (process.env.NODE_ENV !== 'test'){
