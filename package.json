@@ -9,8 +9,8 @@
   "author": "Tomas Roaldsnes",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.1",
-    "express": "^4.15.4",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
     "mocha": "^3.5.3",
